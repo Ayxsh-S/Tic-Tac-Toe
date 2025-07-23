@@ -1,0 +1,77 @@
+body {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3. 1fr);
+    gap: 20px;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.box {
+    background: linear-gradient(45deg, #ff4d6d, #8e007f, #a64ca6);
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s ease;
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    user-select: none;
+    will-change: transform;
+    /* subtle initial glow */
+    box-shadow: 0 0 8px rgba(255, 77, 109, 0.5);
+}
+
+.box:hover {
+    background-position: 100% 50%;
+    transform: scale(1.05);
+    /* brighter neon glow */
+    box-shadow:
+        0 0 10px #ff4d6d,
+        0 0 20px #ff4d6d,
+        0 0 30px #a64ca6,
+        0 0 40px #a64ca6;
+    animation: neonPulse 1.5s infinite alternate;
+}
+
+.box:active {
+    animation: clickBounce 0.3s forwards;
+}
+
+/* neon pulsing glow */
+@keyframes neonPulse {
+    from {
+        box-shadow:
+            0 0 10px #ff4d6d,
+            0 0 20px #ff4d6d,
+            0 0 30px #a64ca6,
+            0 0 40px #a64ca6;
+    }
+    to {
+        box-shadow:
+            0 0 20px #ff4d6d,
+            0 0 40px #ff4d6d,
+            0 0 50px #a64ca6,
+            0 0 60px #a64ca6;
+    }
+}
+
+@keyframes clickBounce {
+    0% {
+        transform: scale(1.05);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
